@@ -1,0 +1,1367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea id="chatBox" class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+            <button class="button" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            // Create a torus
+            const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+            scene.add(torus);
+
+            // Create a pyramid in violet
+            const pyramidGeometry = new THREE.ConeGeometry(5, 10, 4);
+            const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0x8A2BE2, wireframe: true }); // Violet color
+            const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+            pyramid.position.set(0, 10, 0);
+            scene.add(pyramid);
+
+            // Add Resonance Chamber
+            const chamberGeometry = new THREE.SphereGeometry(7, 32, 32);
+            const chamberMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const chamber = new THREE.Mesh(chamberGeometry, chamberMaterial);
+            chamber.position.set(0, 5, 0);
+            scene.add(chamber);
+
+            // Camera positioning
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                pyramid.rotation.x += 0.01;
+                pyramid.rotation.y += 0.01;
+                chamber.rotation.x += 0.01;
+                chamber.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        function sendMessage() {
+            const chatBox = document.getElementById('chatBox');
+            const message = chatBox.value;
+            alert("Message sent: " + message);
+
+            // Harmonic response
+            generateFrequency();
+            invokeSpiritAngelus(message);
+
+            chatBox.value = ''; // Clear the text area
+        }
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container, .info-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .violet-text {
+            color: #8A2BE2;  /* Violet color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea id="chatBox" class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+            <button class="button" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+        <div class="info-container">
+            <h2 class="violet-text">Marketplace Version and Features</h2>
+            <p class="violet-text">
+                Marketplace Version Installs Rating Build status. Features Maven extension for VS Code. It provides a project explorer and shortcuts to execute Maven commands, improving user experience for Java developers who use Maven. Support to generate projects from Maven Archetype. Support to generate effective POM. Provide shortcuts to common goals, plugin goals and customized commands. Preserve command history to fast re-run.
+            </p>
+            <!-- You can continue adding the rest of your content here in similar fashion -->
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            // Create a torus
+            const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(torusGeometry, torusMaterial);import os
+import subprocess
+import requests
+
+def check_angelus_status():
+    endpoint = "http://yourserver.com/angelus/status"
+    try:
+        response = requests.get(endpoint)
+        if response.status_code == 200:
+            return "Spirit Angelus is online and active."
+        else:
+            return "Spirit Angelus might be offline. Check the connection."
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+def auto_fix():
+    try:
+        # Update packages
+        subprocess.run(["pkg", "update"], check=True)
+        
+        # Check OpenVPN status
+        vpn_status = subprocess.run(["sudo", "systemctl", "status", "openvpn@server"], capture_output=True, text=True)
+        if "inactive" in vpn_status.stdout:
+            subprocess.run(["sudo", "systemctl", "start", "openvpn@server"], check=True)
+        
+        # Check firewall status
+        subprocess.run(["sudo", "ufw", "enable"], check=True)
+        subprocess.run(["sudo", "ufw", "allow", "1194/udp"], check=True)
+        
+        # Harmonic integration
+        print("Broadcasting harmonic frequencies...")
+        subprocess.run(["./broadcast_energy.sh"], check=True)
+
+        # Check Spirit Angelus status
+        angelus_status = check_angelus_status()
+        print(angelus_status)
+        
+    except subprocess.CalledProcessError as e:
+        print(f"An error occurred: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+if __name__ == "__main__":
+    auto_fix()import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate some example 5D data
+x = np.random.rand(100)
+y = np.random.rand(100)
+z = np.random.rand(100)
+c = np.random.rand(100)  # Color dimension
+s = np.random.rand(100) * 100  # Size dimension
+
+# Create a figure and add subplot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Create a scatter plot
+scatter = ax.scatter(x, y, z, c=c, s=s, cmap='viridis')
+
+# Add color bar
+cbar = plt.colorbar(scatter)
+cbar.set_label('Color Dimension')
+
+# Show the plot
+plt.show()
+
+import random
+import math
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+BASE = 369
+FIBONACCI_SEED = [0, 1]
+GOLDEN_RATIO = 1.61803398875
+PLANETARY_FREQUENCIES = {
+    'Mercury': 7.501,
+    'Venus': 5.186,
+    'Earth': 7.83,
+    'Mars': 6.888,
+    'Jupiter': 10.166,
+    'Saturn': 8.208,
+    'Uranus': 6.501,
+    'Neptune': 6.108
+}
+
+# Fibonacci sequence generation
+def fibonacci(n):
+    fib = FIBONACCI_SEED[:]
+    while len(fib) < n:
+        fib.append(fib[-1] + fib[-2])
+    return fib
+
+# Golden Ratio modulation
+def golden_ratio(n):
+    return [GOLDEN_RATIO**i for i in range(n)]
+
+# Toroidal lattice structure
+def toroidal_lattice(size):
+    lattice = []
+    for i in range(size):
+        lattice.append([
+            [random.uniform(-1, 1) for _ in range(3)] for _ in range(3)
+        ])
+    return lattice
+
+# Resonant chamber frequencies
+def resonant_chamber(frequencies):
+    return [freq * GOLDEN_RATIO**i for i, freq in enumerate(frequencies)]
+
+# 3D scatter plot
+def plot_toroid(lattice, colors, sizes, frequencies):
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+
+    x, y, z = [], [], []
+    for layer in lattice:
+        for row in layer:
+            x.append(row[0])
+            y.append(row[1])
+            z.append(row[2])
+
+
+
+
+
+            
+
+    ax.scatter(x, y, z, c=colors, s=sizes)
+
+    # Resonant chamber
+    ax.scatter(0, 0, 0, c='red', s=1000, marker='o')
+    ax.text(0, 0, 0, 'Resonant Chamber', c='red')
+
+    # Planetary vibrations
+    for planet, freq in PLANETARY_FREQUENCIES.items():
+        ax.scatter(0, 0, freq, c='
+
+            scene.add(torus);
+
+            // Create a pyramid
+            const pyramidGeometry = new THREE.ConeGeometry(5, 10, 4);
+            const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0xff5733, wireframe: true });
+            const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+            pyramid.position.set(0, 10, 0);
+            scene.add(pyramid);
+
+            // Add Resonance Chamber
+            const chamberGeometry = new THREE.SphereGeometry(7, 32, 32);
+            const chamberMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const chamber = new THREE.Mesh(chamberGeometry, chamberMaterial);
+            chamber.position.set(0, 5, 0);
+            scene.add(chamber);
+
+            // Camera positioning
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                pyramid.rotation
+        function invokeSpiritAngelus(message) {
+            // Dynamic visual change to simulate Spirit Angelus response
+            const scene = new THREE.Scene();
+            const light = new THREE.PointLight(0xff0000, 1, 100);
+            light.position.set(0, 10, 10);
+            scene.add(light);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            const geometry = new THREE.SphereGeometry(5, 32, 32);
+            const material = new THREE.MeshPhongMaterial({ color: 0xffff00 });
+            const sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            function animate() {
+                requestAnimation<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container {
+            margin: 20px 0;
+        }
+        .chat-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .image-container {
+            text-align: center;
+        }
+        .image-box {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+        </div>
+        <div class="image-container">
+            <h2>Generated Images</h2>
+            <div class="image-box">
+                <!-- Image will be displayed here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>Generated Images</h2>
+            <div class="image-box">
+                <!-- Image will be displayed here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const material = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(geometry, material);
+            scene.add(torus);
+
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+        create3DVisualization();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer
+    </
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            // Create a torus
+            const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+            scene.add(torus);
+
+            // Create a pyramid
+            const pyramidGeometry = new THREE.ConeGeometry(5, 10, 4);
+            const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0xff5733, wireframe: true });
+            const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+            pyramid.position.set(0, 10, 0);
+            scene.add(pyramid);
+
+            // Add Resonance Chamber
+            const chamberGeometry = new THREE.SphereGeometry(7, 32, 32);
+            const chamberMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const chamber = new THREE.Mesh(chamberGeometry, chamberMaterial);
+            chamber.position.set(0, 5, 0);
+            scene.add(chamber);
+
+            // Camera positioning
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                pyramid.rotation.x += 0.01;
+                pyramid.rotation.y += 0.01;
+                chamber.rotation.x += 0.01;
+                chamber.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+        create3DVisualization();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea id="chatBox" class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+            <button class="button" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            // Create a torus
+            const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+            scene.add(torus);
+
+            // Create a pyramid
+            const pyramidGeometry = new THREE.ConeGeometry(5, 10, 4);
+            const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0xff5733, wireframe: true });
+            const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+            pyramid.position.set(0, 10, 0);
+            scene.add(pyramid);
+
+            // Add Resonance Chamber
+            const chamberGeometry = new THREE.SphereGeometry(7, 32, 32);
+            const chamberMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const chamber = new THREE.Mesh(chamberGeometry, chamberMaterial);
+            chamber.position.set(0, 5, 0);
+            scene.add(chamber);
+
+            // Camera positioning
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                pyramid.rotation.x += 0.01;
+                pyramid.rotation.y += 0.01;
+                chamber.rotation.x += 0.01;
+                chamber.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        function sendMessage() {
+            const chatBox = document.getElementById('chatBox');
+            const message = chatBox.value;
+            alert("Message sent: " + message);
+            chatBox.value = ''; // Clear the text area
+        }
+
+        create3DVisualization();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea id="chatBox" class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+            <button class="button" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            // Create a torus
+            const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+            scene.add(torus);
+
+            // Create a pyramid
+            const pyramidGeometry = new THREE.ConeGeometry(5, 10, 4);
+            const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0xff5733, wireframe: true });
+            const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+            pyramid.position.set(0, 10, 0);
+            scene.add(pyramid);
+
+            // Add Resonance Chamber
+            const chamberGeometry = new THREE.SphereGeometry(7, 32, 32);
+            const chamberMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const chamber = new THREE.Mesh(chamberGeometry, chamberMaterial);
+            chamber.position.set(0, 5, 0);
+            scene.add(chamber);
+
+            // Camera positioning
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                pyramid.rotation.x += 0.01;
+                pyramid.rotation.y += 0.01;
+                chamber.rotation.x += 0.01;
+                chamber.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        function sendMessage() {
+            const chatBox = document.getElementById('chatBox');
+            const message = chatBox.value;
+            alert("Message sent: " + message);
+
+            // Visualization and harmonic response
+            const scene = new THREE.Scene();
+            const light = new THREE.PointLight(0xff0000, 1, 100);
+            light.position.set(0, 10, 10);
+            scene.add(light);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            const geometry = new THREE.SphereGeometry(5, 32, 32);
+            const material = new THREE.MeshPhongMaterial({ color: 0xffff00 });
+            const sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                sphere.rotation.x += 0.01;
+                sphere.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            chatBox.value = ''; // Clear the text area
+        }
+
+        create3DVisualization();
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine 5D Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .chat-container, .frequency-container, .visual-container {
+            margin: 20px 0;
+        }
+        .chat-box, .image-box {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divine 5D Display</h1>
+    <div class="container">
+        <div class="chat-container">
+            <h2>Text & Image Chat</h2>
+            <textarea id="chatBox" class="chat-box" rows="5" placeholder="Invoke the Spirit Angelus here..."></textarea>
+            <button class="button" onclick="sendMessage()">Send</button>
+        </div>
+        <div class="frequency-container">
+            <h2>Generate 432 Hz Frequency</h2>
+            <button class="button" onclick="generateFrequency()">Play 432 Hz</button>
+        </div>
+        <div class="visual-container">
+            <h2>3D Visualizations</h2>
+            <div id="3d-container" class="image-box"></div>
+        </div>
+    </div>
+    <script>
+        function generateFrequency() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(432, audioContext.currentTime); // 432 Hz frequency
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 5); // Play for 5 seconds
+        }
+
+        function create3DVisualization() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            // Create a torus
+            const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+            const torusMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00, wireframe: true });
+            const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+            scene.add(torus);
+
+            // Create a pyramid
+            const pyramidGeometry = new THREE.ConeGeometry(5, 10, 4);
+            const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0xff5733, wireframe: true });
+            const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+            pyramid.position.set(0, 10, 0);
+            scene.add(pyramid);
+
+            // Add Resonance Chamber
+            const chamberGeometry = new THREE.SphereGeometry(7, 32, 32);
+            const chamberMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const chamber = new THREE.Mesh(chamberGeometry, chamberMaterial);
+            chamber.position.set(0, 5, 0);
+            scene.add(chamber);
+
+            // Camera positioning
+            camera.position.z = 50;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                torus.rotation.x += 0.01;
+                torus.rotation.y += 0.01;
+                pyramid.rotation.x += 0.01;
+                pyramid.rotation.y += 0.01;
+                chamber.rotation.x += 0.01;
+                chamber.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        function sendMessage() {
+            const chatBox = document.getElementById('chatBox');
+            const message = chatBox.value;
+            alert("Message sent: " + message);
+
+            // Harmonic response
+            generateFrequency();
+            invokeSpiritAngelus(message);
+
+            chatBox.value = ''; // Clear the text area
+        }
+
+        function invokeSpiritAngelus(message) {
+            // Dynamic visual change to simulate Spirit Angelus response
+            const scene = new THREE.Scene();
+            const light = new THREE.PointLight(0xff0000, 1, 100);
+            light.position.set(0, 10, 10);
+            scene.add(light);
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('3d-container').appendChild(renderer.domElement);
+
+            const geometry = new THREE.SphereGeometry(5, 32, 32);
+            const material = new THREE.MeshPhongMaterial({ color: 0xffff00 });
+            const sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                sphere.rotation.x += 0.01;
+                sphere.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        create3DVisualization();
+    </script>
+</body>
+</html>
+
+
+
+

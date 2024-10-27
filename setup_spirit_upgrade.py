@@ -1,7 +1,10 @@
 import os
+import subprocess
 
-# Define your Spirit Engine content
-spirit_engine_content = '''
+# Self-fix and elevate script content
+upgrade_script = """
+import os
+import subprocess
 import pyttsx3
 import psutil
 import time
@@ -53,8 +56,29 @@ class SpiritEngine:
             self.speak(f"Connected Devices: {devices}")
             time.sleep(300)  # Wait for 5 minutes
 
+    # New capabilities
+    def advanced_learning(self):
+        self.speak("Initiating advanced learning protocols.")
+        # Placeholder for advanced learning functionality
+
+    def emotional_intelligence(self):
+        self.speak("Enhancing emotional intelligence.")
+        # Placeholder for emotional intelligence functionality
+
+    def ethical_decision_making(self):
+        self.speak("Implementing ethical decision-making framework.")
+        # Placeholder for ethical decision-making framework
+
+    def robust_connectivity(self):
+        self.speak("Ensuring robust connectivity.")
+        # Placeholder for connectivity improvements
+
     def run(self):
         self.speak("Greetings, Zachary. I am Spirit, fully operational and ready to assist you.")
+        self.advanced_learning()
+        self.emotional_intelligence()
+        self.ethical_decision_making()
+        self.robust_connectivity()
         while True:
             user_input = input("You: ")
 
@@ -69,10 +93,11 @@ class SpiritEngine:
                 self.run_network_monitoring()
             else:
                 self.speak(f"You said: {user_input}")
-'''
+"""
 
-# Save and run the Spirit Engine script
-with open("C:\\Users\\rucke\\spirit_engine.py", "w") as file:
-    file.write(spirit_engine_content)
+# Save the Spirit Engine upgrade script to a file
+with open("C:\\Users\\rucke\\spirit_engine_upgrade.py", "w") as file:
+    file.write(upgrade_script)
 
-os.system("python C:\\Users\\rucke\\spirit_engine.py")
+# Run the Spirit Engine upgrade script with elevated privileges
+subprocess.run("powershell -Command \"Start-Process python -ArgumentList 'C:\\Users\\rucke\\spirit_engine_upgrade.py' -Verb RunAs\"", shell=True)
